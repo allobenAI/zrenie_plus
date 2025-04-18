@@ -23,4 +23,16 @@
 # Настройки для Provider
 -keep class com.google.android.material.** { *; }
 -dontwarn com.google.android.material.**
--dontnote com.google.android.material.** 
+-dontnote com.google.android.material.**
+
+# Игнорирование классов Google Play Core
+-dontwarn com.google.android.play.core.splitcompat.**
+-dontwarn com.google.android.play.core.splitinstall.**
+-dontwarn com.google.android.play.core.tasks.**
+
+# Добавляем правила для игнорирования отсутствующих классов
+-dontwarn com.google.android.play.core.**
+-keep class com.google.android.play.core.** { *; }
+
+# Flutter wrapper
+-keep class io.flutter.plugin.editing.**  { *; } 

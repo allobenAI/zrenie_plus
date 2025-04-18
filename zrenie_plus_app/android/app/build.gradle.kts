@@ -38,10 +38,10 @@ android {
         targetSdk = 34
         versionCode = flutter.versionCode
         versionName = flutter.versionName
-        // Увеличиваем память для приложения
-        largeHeap = true
         // Оптимизация для улучшения производительности
         multiDexEnabled = true
+        // Увеличенная память будет указана в AndroidManifest.xml
+        manifestPlaceholders["largeHeap"] = "true"
     }
 
     buildTypes {
@@ -58,8 +58,9 @@ android {
         debug {
             // Отключаем оптимизацию для быстрой сборки
             isMinifyEnabled = false
-            applicationIdSuffix = ".debug"
-            versionNameSuffix = "-debug"
+            // Убираем суффиксы для экономии места
+            applicationIdSuffix = null
+            versionNameSuffix = null
         }
     }
     
